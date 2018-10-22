@@ -43,21 +43,22 @@ public class GeometricShape {
         
                     //Volume of RIGHT RECTANGULAR PRISM
                     //get the legnth from the user 
-                        System.out.println("Enter the Legnth");
+                       
+                        System.out.println("Enter the Legnth of the Rectangular Prism :");
                     //Scanner
                         Scanner ScanRecLegnth = new Scanner(System.in);
                             double recLength = ScanRecLegnth.nextDouble();
                     
                     
                     //get the width from the user
-                        System.out.println("Enter the Width");
+                        System.out.println("Enter the Width of the Rectangular Prism :");
                     //Scanner
                         Scanner ScanRecWidth = new Scanner(System.in);
                             double recWidth = ScanRecWidth.nextDouble();
                     
                     
                     //get the height from the user
-                    System.out.println("Enter the Height");
+                    System.out.println("Enter the Height of the Rectangular Prism :");
                     //Scanner
                         Scanner ScanRecHeight = new Scanner(System.in);
                             double recHeight = ScanRecHeight.nextDouble();
