@@ -73,32 +73,37 @@ public class KennywoodRideTracker {
             return totalRiders;
             }//end rideBlackWidow
         
-        public static int rideMerryGoRound(int groupSize, int height) {
-            if (height >= MINHEIGHT_THEME) {
-            System.out.println("Riding MerryGoRound...");
-            totalRiders = totalRiders + groupSize;
-            Random rand = new Random();
-            sickRiders = rand.nextInt(groupSize);
-            
-            } else { 
-                System.out.println("Riders turned away!! Too short!!");
-                failedRideAttempts = failedRideAttempts + groupSize;
-            }
-            return totalRiders;
-        }//end rideMerryGoRound
         
-        public static void printRideStats() {
-            System.out.println(" ");
-            System.out.println("*******RIDER STATS*******");
-            System.out.println("Total Riders: " + totalRiders);
-            System.out.println("Total Failed Ride Attempts: " + failedRideAttempts);
-            System.out.println("Total Sick Riders: " + sickRiders);
-            System.out.println("*************************");
-            System.out.println(" ");
-        }//end printRideStats
+        
+            public static int rideMerryGoRound(int groupSize, int height) {
+                if (height >= MINHEIGHT_THEME) {
+                System.out.println("Riding MerryGoRound...");
+                totalRiders = totalRiders + groupSize;
+                Random rand = new Random();
+                sickRiders = rand.nextInt(groupSize);
+            
+                } else { 
+                    System.out.println("Riders turned away!! Too short!!");
+                    failedRideAttempts = failedRideAttempts + groupSize;
+                }
+                return totalRiders;
+            }//end rideMerryGoRound
+        
+        
+        
+            public static void printRideStats() {
+                System.out.println(" ");
+                System.out.println("*******RIDER STATS*******");
+                System.out.println("Total Riders: " + totalRiders);
+                System.out.println("Total Failed Ride Attempts: " + failedRideAttempts);
+                System.out.println("Total Sick Riders: " + sickRiders);
+                System.out.println("*************************");
+                System.out.println(" ");
+            }//end printRideStats
 
    
     
     
     
 }//close class
+ 
