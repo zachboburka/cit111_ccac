@@ -1,0 +1,109 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ls3_classStructure;
+import java.util.Scanner;
+/**
+ *
+ * @author zachary.boburka
+ */
+public class DairyQueen {
+    //cash register for dairy queen
+    //values for  variables revenue and orders
+    static double revenue = 0;
+    static double orders = 0;
+    
+    final static double BLIZZARD_PRICE = 3.00;
+    final static double CONE_PRICE = 1.50;
+    final static double CAKE_PRICE = 10.00;   
+    final static double SMOOTHIE_PRICE = 2.50;
+    
+    
+    public static void main(String[] args){
+        
+        //welcome the customer, give the menu, take the order
+        System.out.println("Welcome to Dairy Queen");
+        System.out.println("***************************");
+        System.out.println("MENU : ");
+        System.out.println("Oreo Blizzard");
+        System.out.println("Vanilla Cone");
+        System.out.println("Ice Cream Cake");
+        System.out.println("Orange Julius");
+        System.out.println("***************************");
+        System.out.println("What Would You Like To Order?");
+        
+        //scanner to take order
+        Scanner scanOrder = new Scanner(System.in);
+        String order = scanOrder.next();
+        
+        //print
+        if(order.equals("Oreo Blizzard")){
+        oreoBlizzard(order);
+                printStats();
+
+        }
+        
+        if(order.equals("Vanilla Cone")){
+        vanillaCone(order);
+                printStats();
+
+        }
+        
+        if(order.equals("Ice Cream Cake")){
+        cake(order);
+                printStats();
+
+        }
+        
+        if(order.equals("Orange Julius")){
+        orangeJulius(order);
+                printStats();
+
+        } else { 
+            System.out.println("Sorry, What Did You Order?");
+        }//close if/else
+        
+        
+    }//close main
+
+        public static double oreoBlizzard(String order) {           
+            System.out.println("Making Blizzard");            
+            revenue = revenue + BLIZZARD_PRICE;
+            orders = orders + 1;            
+        return orders;     
+        
+        }//close oreoBlizzard
+    
+    
+            public static double vanillaCone(String order) {
+                System.out.println("Making Cone");
+                revenue = revenue + CONE_PRICE;
+                orders = orders + 1;            
+            return orders;
+            }//close vanillaCone
+    
+                public static double cake(String order) {
+                    System.out.println("Making Cake");                
+                    revenue = revenue + CAKE_PRICE;
+                    orders = orders + 1;       
+                return orders;
+                }//close cake
+                
+                
+                    public static double orangeJulius(String order) {
+                        System.out.println("Making Smoothie");                   
+                        revenue = revenue + SMOOTHIE_PRICE;
+                        orders = orders + 1;                   
+                    return orders;                    
+                    }//close orangeJulius
+                    
+                        public static void printStats() {
+                            System.out.println(" ");
+                            System.out.println("******Stats******");
+                            System.out.println("Total Revenue : " + revenue);
+                            System.out.println("Total Orders : " + orders);
+                            System.out.println("*****************");
+                        }//close printStats
+}//close class
