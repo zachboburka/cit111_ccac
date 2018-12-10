@@ -5,6 +5,7 @@
  */
 package javaobjects;
 
+
 /**
  *
  * @author zachary.boburka
@@ -20,15 +21,15 @@ public class skatePark {
         firstSkateboard.brand = "AntiHero";
         firstSkateboard.size = 8.12;
         firstSkateboard.trickName = "Kickflip";
-        firstSkateboard.trickHeight = 3;
         firstSkateboard.doTrick();
+        firstSkateboard.getTrickHeight();
         
         System.out.println("firstSkateboard's brand : " + firstSkateboard.brand);
         System.out.println("firstSkateboard's size : " + firstSkateboard.size + " inches");
         System.out.println("Doing Trick...     ");
         System.out.println("firstSkateboard's trick landed : " + firstSkateboard.trickLanded);
-        System.out.println("firstSkateboard's trick : " + firstSkateboard.trickName);
-        System.out.println("firstSkateboard's trick height : " + firstSkateboard.trickHeight + " feet high");
+        System.out.println("firstSkateboard's trick : " + firstSkateboard.trickName);        
+        System.out.printf("firstSkateboard's trick height : %.2f feet high ", firstSkateboard.trickHeight);
         System.out.println("");
         System.out.println("********************************************************************************");
         System.out.println("");
@@ -40,15 +41,15 @@ public class skatePark {
         secondSkateboard.brand = "Palace Skatebords";
         secondSkateboard.size = 8.25;
         secondSkateboard.trickName = "Pop Shuvit";
-        secondSkateboard.trickHeight = 2;
         secondSkateboard.doTrick();
-        
+        secondSkateboard.getTrickHeight();
+
         System.out.println("secondSkateboard's brand : " + secondSkateboard.brand);
         System.out.println("secondSkateboard's size : " + secondSkateboard.size + " inches");
         System.out.println("Doing Trick...     ");
         System.out.println("secondSkateboard's trick landed : " + secondSkateboard.trickLanded);
         System.out.println("secondSkateboard's trick : " + secondSkateboard.trickName);
-        System.out.println("secondSkateboard's trick height : " + secondSkateboard.trickHeight + " feet high");
+        System.out.printf("secondSkateboard's trick height : %.2f feet high ", secondSkateboard.trickHeight);
         System.out.println("");
         System.out.println("********************************************************************************");
         System.out.println("");
@@ -59,15 +60,15 @@ public class skatePark {
         thirdSkateboard.brand = "Palace Skatebords";
         thirdSkateboard.size = 8;
         thirdSkateboard.trickName = "Tre Flip";
-        thirdSkateboard.trickHeight = 4;
         thirdSkateboard.doTrick();
-        
+        thirdSkateboard.getTrickHeight();
+
         System.out.println("thirdSkateboard's brand : " + thirdSkateboard.brand);
         System.out.println("thirdSkateboard's size : " + thirdSkateboard.size + " inches");
         System.out.println("Doing Trick...     ");
         System.out.println("thirdSkateboard's trick landed : " + thirdSkateboard.trickLanded);
         System.out.println("thirdSkateboard's trick : " + thirdSkateboard.trickName);
-        System.out.println("thirdSkateboard's trick height : " + thirdSkateboard.trickHeight + " feet high");
+        System.out.printf("thirdSkateboard's trick height : %.2f feet high ", thirdSkateboard.trickHeight);
         System.out.println("");
         System.out.println("********************************************************************************");
         System.out.println("");
