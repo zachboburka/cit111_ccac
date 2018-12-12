@@ -13,7 +13,7 @@ package javaobjects;
 public class skatePark {
     
     public static void main(String[] args) {
-        //introducing skatboard 1
+        //introducing skateboards
         
         //skateboard 1
         System.out.println("**** First Skateboard ****");
@@ -33,6 +33,7 @@ public class skatePark {
         System.out.println("");
         System.out.println("********************************************************************************");
         System.out.println("");
+        
         
         
         //skateboard 2
