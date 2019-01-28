@@ -1,0 +1,48 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package StringProcessing;
+
+/**
+ *
+ * @author zachary.boburka
+ */
+public class SecureLand {
+    
+    public static void main(String[] args) {
+        
+        //arrays
+        //set up array
+        
+        //reqChar
+        //stores the characters that can be used in the password
+        String[] req = new String[2];
+        req[0] = "%";
+        req[1] = "@";
+        
+        
+        
+        String test = "p@ssword";
+        
+        int i = test.indexOf("@");
+        
+        if(i >= 0) {
+            System.out.println("yes");
+        } else {
+            System.out.println("no");
+        }
+        
+        
+        //i dont think this is arrays
+        //reqLength
+        //sets the required lenght of the password
+        
+        
+
+
+
+        
+    }//end main
+}//end class
