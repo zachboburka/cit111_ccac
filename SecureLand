@@ -12,68 +12,69 @@ import java.util.Scanner;
  */
 public class SecureLand {
     
+
+    
     public static void main(String[] args) {
         //user input
         //user enters a password and program determines whether or not
         //it meets the length and character requirement
         
+        
         //create string for entered password
         String enteredPassword;
         
-        //ask user
-        System.out.println("Create Password, Must Be Between 8 and 50 characters, and Contain an @ or %.");
-        
-        Scanner ScanPassword = new Scanner(System.in);
+        //ints
+        int min1 = 8;
+        int max1 = 50;
+        int criteria1 = 0;
+
+
+        //loop
+        while(true) {
+            //ask user
+            System.out.println("Create Password, Must Be Between 8 and 50 characters, and Contain an @ or %.");
+            
+            //scanner
+            Scanner ScanPassword = new Scanner(System.in);
             enteredPassword = ScanPassword.next();
-        
-        //arrays
-        //set up array
-        String[] req = new String[2];
-        req[0] = "%";
-        req[1] = "@";
+            int length1 = enteredPassword.length( );
 
-        
-        
-        //reqChar
-        //stores the characters that can be used in the password
-        //checks for @
-        int at = enteredPassword.indexOf("@");
-        int charResultAt;
-        if(at >= 0) {
-            charResultAt = 1;
-        } else {
-            charResultAt = 0;
-        }
-        
-        //checks for %
-        int percent = enteredPassword.indexOf("%");
-        int charResultPercent;
-        if(percent >= 0) {
-            charResultPercent = 1;
-        } else {
-            charResultPercent = 0;
-        }
-        
-        //reqLength
-        //sets the required lenght of the password
-        int length = enteredPassword.length( );
-        int lengthResult;
-        if(length >= 8 && length <= 50) {
-            lengthResult = 1;
-        } else {
-            lengthResult = 0;
-       }
+            if(length1 >= 8 && length1 <= 50) {
+                criteria1 = criteria1 + 1;
+            } else {
+                criteria1 = criteria1 + 0;
+            }//end if length
+            
+                int at = enteredPassword.indexOf("@");
+                        if(at >= 0) {
+                        criteria1 = criteria1 + 1;
+                        } else {
+                        criteria1 = criteria1 + 0;
+                        }//end @ if
 
-        //track if password criteria is met
-        int criteria;
-        criteria = lengthResult + charResultAt + charResultPercent;
+                //checks for %
+                            int percent = enteredPassword.indexOf("%");
+                            if(percent >= 0) {
+                                criteria1 = criteria1 + 1;
+                            } else {
+                                criteria1 = criteria1 + 0;
+                            }//end % if
+                            
+                            if(criteria1 >= 2) { 
+                                System.out.println("Password meets criteria");
+                                break;
+                            } else { 
+                                System.out.println("Password does not meet criteria, please enter another one.");
+                                System.out.println(" ");
+                            }//end if
+            }//end while loop
         
-        //determine if password matches all criteria and is legal
-        if(criteria == 2){
-            System.out.println("Password is Good");
-        } else {
-            System.out.println("Password Does Not Meet Criteria");
-        }
+            
+        
+        
+        
+        
+        
             
         
         
