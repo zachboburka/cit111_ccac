@@ -12,26 +12,28 @@ package cit130;
 public class StrengthChecker {
           
     //password length
-        int min = 8;
-        int max = 50;
-        int criteria;        
-                
-        
+        int min;
+        int max;
+        String[] reqChars;
+        boolean reqLength;
+        boolean reqChar;
+        boolean reqChar2;
 
         
         public int SetReqLength(String enteredPassword){
-        
             //reqLength
             //sets the required lenght of the password
             int length = enteredPassword.length( );
-            if(length >= min && length <= max) {
-                criteria = criteria + 1;
-            } else {
-                criteria = criteria + 0;
-            }//end length if
-        
-            System.out.println(criteria);
-            return  criteria;
+            
+            if(length >= min && length <= max){
+                reqLength = true;
+            } else { 
+                reqLength = false;
+            }//end if
+            
+            
+            
+            return length;
         }//end SetReqLength
          
         
@@ -39,52 +41,31 @@ public class StrengthChecker {
             public int setReqChars(String enteredPassword){
                 //arrays
                 //set up array
-                String[] req = new String[2];
-                req[0] = "%";
-                req[1] = "@";
-
-                    //reqChar
-                    //stores the characters that can be used in the password
-                    //checks for @
-                    int at = enteredPassword.indexOf("@");
-                    if(at >= 0) {
-                    criteria = criteria + 1;
-                    } else {
-                    criteria = criteria + 0;
-                    }//end @ if
-          
-                        //checks for %
-                        int percent = enteredPassword.indexOf("%");
-                        if(percent >= 0) {
-                            criteria = criteria + 1;
+                String[] reqChars = {"!", "#"};
+                
+                int char1 = enteredPassword.indexOf();
+                        if(char1 >= 0) {
+                        reqChar = true;
                         } else {
-                            criteria = criteria + 0;
-                        }//end % if
-                        
-                        //track if the password meets the "@" and "%" character result                        
-                        System.out.println(criteria);                    
-                        return criteria;
-                        
+                        reqChar = false;
+                        }//end @ if
+                
+                
+            return char1;
             }//end setReqChars                
                 
             
             
-                public int criteriaMet(){
+                public boolean CheckPassword(){
                             
                             //track if password criteria is met
                             //determine if password matches all criteria and is legal    
-                            if(criteria == 2){
-                                    System.out.println("Password is Good");
-                                } else {
-                                    System.out.println("Password Does Not Meet Criteria");
-                                }//end criteria if
-                                
-                                System.out.println(criteria);
-                                
-                                return criteria;
+                            return;
                              }//end criteriaMet
                 
                 
+                
+                            
                              
                     
 }//end class
