@@ -14,58 +14,80 @@ public class StrengthChecker {
     //password length
         int min;
         int max;
+        int criteria = 0;
         String[] reqChars;
         boolean reqLength;
         boolean reqChar;
-        boolean reqChar2;
+        boolean reqCriteria;
+        
+
 
         
-        public int SetReqLength(String enteredPassword){
+        public int SetReqLength(int min, int max, String enteredPassword){
             //reqLength
             //sets the required lenght of the password
             int length = enteredPassword.length( );
-            
+
             if(length >= min && length <= max){
                 reqLength = true;
+                criteria = criteria + 1;
+                System.out.println("1true");
             } else { 
                 reqLength = false;
+                criteria = criteria + 0;
+                System.out.println("1false");
+
             }//end if
-            
-            
-            
-            return length;
+
+            return criteria;
         }//end SetReqLength
-         
+        
         
         
             public int setReqChars(String enteredPassword){
                 //arrays
                 //set up array
-                String[] reqChars = {"!", "#"};
+                String[] reqChars = {"@", "!"};
                 
-                int char1 = enteredPassword.indexOf();
-                        if(char1 >= 0) {
+                for (int i=0; i<reqChars.length;i++) {
+                    if(reqChars[i].equals(reqChars)){
                         reqChar = true;
-                        } else {
+                        criteria = criteria + 1;
+                        System.out.println("2true");
+                    } else {
                         reqChar = false;
-                        }//end @ if
-                
-                
-            return char1;
+                        criteria = criteria + 0;
+                        System.out.println("2false");
+                    }//end if
+                    
+                }//end for
+
+            return criteria;
             }//end setReqChars                
                 
             
             
-                public boolean CheckPassword(){
-                            
+                public boolean CheckPassword(String enteredPassword){
                             //track if password criteria is met
-                            //determine if password matches all criteria and is legal    
-                            return;
-                             }//end criteriaMet
-                
-                
-                
+                            //determine if password matches all criteria and is legal 
+                            while(true) {
                             
-                             
-                    
-}//end class
+                            if(criteria == 2){
+                                reqCriteria = true;
+                                System.out.println("Password meets all requirements, good job");
+                                break;
+                            } else {
+                                reqCriteria = false;
+                                System.out.println("Password must be at or between 8 and 50 characters, please restart.");
+                                System.out.println("Criteria = " + criteria);
+                                break;
+                            }//end if
+                            
+                            
+                             }//end loop
+                                System.out.println(enteredPassword);
+                            return reqCriteria;
+                }//end CheckPassword
+                
+                
+                }//end class
