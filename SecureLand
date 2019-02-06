@@ -18,66 +18,31 @@ public class SecureLand {
         //user input
         //user enters a password and program determines whether or not
         //it meets the length and character requirement
-        
-        
+        //methods, hopefully this works
+
         //create string for entered password
-        String enteredPassword;
-        
-        //ints
-        int min1 = 8;
-        int max1 = 50;
-        int criteria1 = 0;
+        //scanner
+        System.out.println("Enter a Password, Password must be at or between 8 to 50 characters and contain a ! or #.");
+        Scanner ScanPassword = new Scanner(System.in);
+        String enteredPassword = ScanPassword.next();
 
+        StrengthChecker sc = new StrengthChecker();
 
-        //loop
-        while(true) {
-            //ask user
-            System.out.println("Create Password, Must Be Between 8 and 50 characters, and Contain an @ or %.");
-            
-            //scanner
-            Scanner ScanPassword = new Scanner(System.in);
-            enteredPassword = ScanPassword.next();
-            int length1 = enteredPassword.length( );
+        
+        //checks length
+        sc.SetReqLength(8, 50, enteredPassword);
+        
+        //checks characters
+        sc.setReqChars(enteredPassword);
+        
+        //checks password for both method 1 & 2
+        sc.CheckPassword(enteredPassword);
+        
+        
 
-            if(length1 >= 8 && length1 <= 50) {
-                criteria1 = criteria1 + 1;
-            } else {
-                criteria1 = criteria1 + 0;
-            }//end if length
             
-                int at = enteredPassword.indexOf("@");
-                        if(at >= 0) {
-                        criteria1 = criteria1 + 1;
-                        } else {
-                        criteria1 = criteria1 + 0;
-                        }//end @ if
-
-                //checks for %
-                            int percent = enteredPassword.indexOf("%");
-                            if(percent >= 0) {
-                                criteria1 = criteria1 + 1;
-                            } else {
-                                criteria1 = criteria1 + 0;
-                            }//end % if
-                            
-                            if(criteria1 >= 2) { 
-                                System.out.println("Password meets criteria");
-                                break;
-                            } else { 
-                                System.out.println("Password does not meet criteria, please enter another one.");
-                                System.out.println(" ");
-                            }//end if
-            }//end while loop
-        
             
-        
-        
-        
-        
-        
             
-        
-        
         
     }//end main
 }//end class
