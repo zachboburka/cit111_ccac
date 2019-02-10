@@ -33,7 +33,7 @@ public class StrengthChecker {
                 criteria = criteria + 1;
             } else { 
                 reqLength = false;
-                criteria = criteria + 0;                
+                criteria = criteria - 2;                
                 break;
             }//end if
                             
