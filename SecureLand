@@ -15,14 +15,11 @@ public class SecureLand {
 
     
     public static void main(String[] args) {
-        //user input
         //user enters a password and program determines whether or not
         //it meets the length and character requirement
-        //methods, hopefully this works
 
-        //create string for entered password
-        //scanner
-        System.out.println("Enter a Password, Password must be at or between 8 to 50 characters and contain a ! or #.");
+        //scanner & user input
+        System.out.println("Enter a Password, Password must be at or between 8 to 50 characters and contain an @ or !.");
         Scanner ScanPassword = new Scanner(System.in);
         String enteredPassword = ScanPassword.next();
 
