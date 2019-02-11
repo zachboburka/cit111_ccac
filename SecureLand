@@ -15,31 +15,30 @@ public class SecureLand {
 
     
     public static void main(String[] args) {
-        //user enters a password and program determines whether or not
-        //it meets the length and character requirement
 
-        //scanner & user input
+        /**
+         * Prints instructions, creates scanner, and takes user input
+         */
         System.out.println("Enter a Password, Password must be at or between 8 to 50 characters and contain an @ or !.");
         Scanner ScanPassword = new Scanner(System.in);
         String enteredPassword = ScanPassword.next();
-
         StrengthChecker sc = new StrengthChecker();
+        String[] reqChars = {"@", "!", "#"};
 
+        /**
+         * Checks if the password meets the length requirement
+         */
+        sc.setReqLength(8, 50);
         
-        //checks length
-        sc.SetReqLength(8, 50, enteredPassword);
+        /**
+         * Checks if the password meets the character requirement
+         */
+        sc.setReqChars(reqChars);
         
-        //checks characters
-        sc.setReqChars(enteredPassword);
-        
-        //checks password for both method 1 & 2
-        sc.CheckPassword(enteredPassword);
-        
-        
-
-            
-            
-            
+        /**
+         * Checks if the password meets all requirements
+         */
+        sc.checkPassword(enteredPassword);
         
     }//end main
 }//end class
