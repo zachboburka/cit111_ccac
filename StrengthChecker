@@ -6,83 +6,86 @@
 package cit130;
 
 /**
- *
+ * Uses 3 methods to determine if the user entered password meets
+ * all requirements
+ * setReqLength will set the length of the password
+ * setReqChars will set the required Characters
+ * checkPassword will check if password meets both requirements
  * @author zachboburka
  */
 public class StrengthChecker {
-          
-    //password length
-        int min;
-        int max;
-        int criteria = 0;
-        String[] reqChars= {"@", "!"};
-        boolean reqLength;
-        boolean reqChar;
-        boolean reqCriteria;
-        
 
+    private int memMin;
+    private int memMax;
+    int criteria = 0;
+    private String[] memReqChars;
+    boolean reqLength;
+    boolean reqChar;
+    boolean reqCriteria;
 
-        
-        public int SetReqLength(int min, int max, String enteredPassword){
-            //reqLength
-            //sets the required lenght of the password
-            int length = enteredPassword.length( );
-            while(true) {
-            if(length >= min && length <= max){
+    /**
+     * Puts the values of min/max into memMin/memMax
+     *
+     * @param min : minimum password length
+     * @param max : maximum password length
+     */
+    public void setReqLength(int min, int max) {   
+        memMin = min;
+        memMax = max;
+    }//end SetReqLength     
+
+    /**
+     * Puts the value of reqChars into memReqChars
+     *
+     * @param reqChars : required characters
+     */
+    public void setReqChars(String[] reqChars) {
+        memReqChars = reqChars;
+    }//end setReqChars                
+
+    /**
+     * Determines if the entered password meets all requirements by checking the
+     * value of reqCriteria
+     *
+     * @param enteredPassword : User entered password
+     * @return
+     */
+    public boolean checkPassword(String enteredPassword) {
+
+        //checks password length
+        int length = enteredPassword.length();
+            if (length >= memMin && length <= memMax) {
                 reqLength = true;
                 criteria = criteria + 1;
-            } else { 
+            } else {
                 reqLength = false;
-                criteria = criteria - 2;                
+                criteria = criteria - 3;
+            }//end if
+        
+        //checks password characters
+        for (int i = 0; i < memReqChars.length; i++) {
+            if (enteredPassword.contains(memReqChars[i])) {
+                reqChar = true;
+                criteria = criteria + 1;
+            } else {
+                reqChar = false;
+                criteria = criteria + 0;
+            }         
+        }//end for
+        
+        //checks password requirements
+        while (true) {
+            if (criteria >= 2) {
+                reqCriteria = true;
+                System.out.println("Password meets all requirements, good job");
+                break;
+            } else {
+                reqCriteria = false;
+                System.out.println("Password does not meet criteria, please try again.");
+                System.out.println(criteria);
                 break;
             }//end if
-                            
-            return criteria;
-            }//loop
-            return length;
-        }//end SetReqLength
-        
-        
-        
-            public int setReqChars(String enteredPassword){
-                //arrays
-                //set up array
-                
-                for(int i =0; i < reqChars.length; i++) {
-                        if(enteredPassword.contains(reqChars[i])){        
-                        reqChar = true;
-                        criteria = criteria + 1;
-                        } else {
-                        reqChar = false;
-                        criteria = criteria + 0;  
-                        }
-                    }//end for
-                
-                return criteria;
-            }//end setReqChars                
-                
-            
-                
-
-                public boolean CheckPassword(String enteredPassword){
-                            //track if password criteria is met
-                            //determine if password matches all criteria and is legal 
-                            while(true) {
-                            
-                            if(criteria >= 2){
-                                reqCriteria = true;
-                                System.out.println("Password meets all requirements, good job");
-                                break;
-                            } else {
-                                reqCriteria = false;
-                                System.out.println("Password does not meet criteria, please try again.");
-                                break;
-                            }//end if
-                            
-                            
-                             }//end loop
-                            return reqCriteria;
-                }//end CheckPassword
-                
-                
-                }//end class
+        }//end loop
+        return reqCriteria;
+    }//end CheckPassword               
+}//end class
