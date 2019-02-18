@@ -87,10 +87,23 @@ public class ParentalPractice {
     for(int i = 0; i <= 2; i=i+1){
         Student accessedStud = studs[i];
         System.out.println("Accessed student : " + accessedStud);
+        
+        //if ElemStudent
         if(accessedStud instanceof ElemStudent){
-        ElemStudent es = (ElemStudent) accessedStud;
-        }
+            ElemStudent es = (ElemStudent) accessedStud;
+        }//end if ElemStudent
+        
+        //if HSStudent
+        if(accessedStud instanceof HSStudent) {
+            HSStudent hs = (HSStudent) accessedStud;
+        }//end if HSStudent
+        
+        //if CollegeStudent
+        if(accessedStud instanceof CollegeStudent) {
+            CollegeStudent cs = (CollegeStudent) accessedStud;
+        }//end if CollegeStudent
     }//end for
+    
         //user interaction 
         System.out.println("Pick a Student");
         int studPicked;
