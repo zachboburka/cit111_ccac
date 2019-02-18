@@ -91,6 +91,9 @@ public class ParentalPractice {
         //if ElemStudent
         if(accessedStud instanceof ElemStudent){
             ElemStudent es = (ElemStudent) accessedStud;
+            
+            //should be 
+            ElemStud es = (ElemStudent) accessedStud;
         }//end if ElemStudent
         
         //if HSStudent
