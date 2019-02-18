@@ -1,0 +1,105 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package week2inheritance;
+import java.util.Scanner;
+
+class Student {
+    String name;
+    String gender;
+    int age;
+    int studID;
+}//Student
+
+class ElemStudent extends Student {
+    String allergies;
+    String emergencyContactPhone;
+
+    void printElem(){
+        System.out.println("Name : " + name);
+        System.out.println("Gender : " + gender);
+        System.out.println("Age : " + age);
+        System.out.println("Student ID : " + studID);
+        System.out.println("Allergies : " + allergies);
+        System.out.println("Emergency Contact Phone : " + emergencyContactPhone);
+    }// end printElem
+}//elemStudent
+
+class HSStudent extends Student {
+    int grade;
+    double GPA;
+    boolean honorRoll;
+
+    public boolean honorRollMethod() {
+        if (GPA >= 3.0) {
+            honorRoll = true;
+        } else {
+            honorRoll = false;
+        }//end if
+        return honorRoll;
+    }//honorRollMethod
+    void printHS(){
+        System.out.println("Name : " + name);
+        System.out.println("Gender : " + gender);
+        System.out.println("Age : " + age);
+        System.out.println("Student ID : " + studID);
+        System.out.println("Grade : " + grade);
+        System.out.println("GPA : " + GPA);
+        System.out.println("Honor Roll : " + honorRoll);
+    }// end printHS
+}//HSStudent
+
+class CollegeStudent extends HSStudent {
+    String major;
+    boolean scholarship;
+
+    public boolean scholarshipMethod() {
+        if (GPA >= 4.0) {
+            scholarship = true;
+        } else {
+            scholarship = false;
+        }
+        return scholarship;
+    }//end scholarshipMethod
+    void printCollege(){
+        System.out.println("Name : " + name);
+        System.out.println("Gender : " + gender);
+        System.out.println("Age : " + age);
+        System.out.println("Student ID : " + studID);
+        System.out.println("Major : " + major);
+        System.out.println("Scholarship? : " + scholarship);
+    }// end printCollege
+}//CollegeStudent
+
+public class ParentalPractice {
+
+    public static void main(String[] args) {
+        Object[] obs = new Object[3];
+        Student[] studs = new Student[3];
+        studs[0] = new ElemStudent();
+        studs[1] = new HSStudent();
+        studs[2] = new CollegeStudent();
+      
+        //User Interaction
+        //for loop
+    for(int i = 0; i <= 2; i=i+1){
+        Student accessedStud = studs[i];
+        System.out.println("Accessed student : " + accessedStud);
+        if(accessedStud instanceof ElemStudent){
+        ElemStudent es = (ElemStudent) accessedStud;
+        }
+    }//end for
+        //user interaction 
+        System.out.println("Pick a Student");
+        int studPicked;
+        
+        //Scanner
+        Scanner ScanStud = new Scanner(System.in);
+            studPicked = ScanStud.nextInt();
+   
+        //Prints picked student
+        System.out.println(studs[studPicked]);
+    }//main
+}//ParentalPractice
