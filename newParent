@@ -3,44 +3,45 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package week2inheritance;
+package inheritance;
 import java.util.Scanner;
 
 class Student {
-    String name;
-    String gender;
-    int age;
-    int studID;
+    String name = "Zach";
+    String gender = "Male";
+    int age = 19;
+    int studID = 1392273;
+    String es1;
+    String hs1;
+    String cs1;
+    
 }//Student
 
 class ElemStudent extends Student {
     String allergies;
     String emergencyContactPhone;
 
-    void printElem(){
+    public String ElemStudent(){
         System.out.println("Name : " + name);
         System.out.println("Gender : " + gender);
         System.out.println("Age : " + age);
         System.out.println("Student ID : " + studID);
         System.out.println("Allergies : " + allergies);
         System.out.println("Emergency Contact Phone : " + emergencyContactPhone);
+        return es1;
     }// end printElem
 }//elemStudent
 
 class HSStudent extends Student {
-    int grade;
-    double GPA;
-    boolean honorRoll;
+    int grade = 13;
+    double GPA = 3.25;
+    boolean honorRoll = true;
 
     public boolean honorRollMethod() {
-        if (GPA >= 3.0) {
-            honorRoll = true;
-        } else {
-            honorRoll = false;
-        }//end if
+        honorRoll = GPA >= 3.0; //end if
         return honorRoll;
     }//honorRollMethod
-    void printHS(){
+    public String HSStudent(){
         System.out.println("Name : " + name);
         System.out.println("Gender : " + gender);
         System.out.println("Age : " + age);
@@ -48,22 +49,20 @@ class HSStudent extends Student {
         System.out.println("Grade : " + grade);
         System.out.println("GPA : " + GPA);
         System.out.println("Honor Roll : " + honorRoll);
+        return hs1;
     }// end printHS
 }//HSStudent
 
 class CollegeStudent extends HSStudent {
-    String major;
-    boolean scholarship;
+    String major = "CS";
+    boolean scholarship = false;
 
     public boolean scholarshipMethod() {
-        if (GPA >= 4.0) {
-            scholarship = true;
-        } else {
-            scholarship = false;
-        }
+        scholarship = GPA >= 4.0;
         return scholarship;
     }//end scholarshipMethod
-    void printCollege(){
+    
+    void CollegeStudent(){
         System.out.println("Name : " + name);
         System.out.println("Gender : " + gender);
         System.out.println("Age : " + age);
@@ -73,47 +72,34 @@ class CollegeStudent extends HSStudent {
     }// end printCollege
 }//CollegeStudent
 
-public class ParentalPractice {
+public class newParent {
 
     public static void main(String[] args) {
-        Object[] obs = new Object[3];
         Student[] studs = new Student[3];
         studs[0] = new ElemStudent();
         studs[1] = new HSStudent();
         studs[2] = new CollegeStudent();
-      
-        //User Interaction
-        //for loop
-    for(int i = 0; i <= 2; i=i+1){
-        Student accessedStud = studs[i];
-        System.out.println("Accessed student : " + accessedStud);
         
-        //if ElemStudent
-        if(accessedStud instanceof ElemStudent){
-            ElemStudent es = (ElemStudent) accessedStud;
-            
-            //should be 
-            ElemStud es = (ElemStudent) accessedStud;
-        }//end if ElemStudent
         
-        //if HSStudent
-        if(accessedStud instanceof HSStudent) {
-            HSStudent hs = (HSStudent) accessedStud;
-        }//end if HSStudent
         
-        //if CollegeStudent
-        if(accessedStud instanceof CollegeStudent) {
-            CollegeStudent cs = (CollegeStudent) accessedStud;
-        }//end if CollegeStudent
-    }//end for
-    
-        //user interaction 
+      //user interaction 
         System.out.println("Pick a Student");
         int studPicked;
         
         //Scanner
         Scanner ScanStud = new Scanner(System.in);
             studPicked = ScanStud.nextInt();
+            
+        //User Interaction
+        //for loop
+    for(int i = 0; i <= 2; i=i+1){
+        Student accessedStud = studs[i];
+        System.out.println("Accessed student : " + accessedStud);
+        
+        
+    }//end for
+    
+        
    
         //Prints picked student
         System.out.println(studs[studPicked]);
