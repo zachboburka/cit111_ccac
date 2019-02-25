@@ -1,0 +1,87 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package inheritance;
+
+import java.util.Scanner;
+
+/**
+ * this program will take computer components and human interest components and
+ * will print specifics about the component, then put it on a time line.
+ *
+ * @author zachary.boburka
+ */
+
+/*
+    Parent Class named component will store member variables for the
+    component's name, author, project name, and description, along with 
+    a method to determine how long ago it happened.
+ */
+class Component {
+
+    int year;
+    int yearsAgo;
+    String projectName;
+    String author;
+    String description;
+
+    public int yearSince(int currentYear) {
+        yearsAgo = (currentYear - year);
+
+        return yearsAgo;
+    }//end yearSince
+
+}//end Component
+
+class computerComponent extends Component {
+
+    double price;
+    double currentPrice;
+    int priceYear;
+    String manufacturer;
+    String modelName;
+    String whyChoose;
+    String yearEvent;
+
+    public double newPrice(double inflationRate) {
+        //Scanner
+        Scanner ScanPrice = new Scanner(System.in);
+        inflationRate = ScanPrice.nextDouble();
+
+        //computer current price using inflation rate
+        currentPrice = (price * inflationRate);
+
+        return currentPrice;
+    }
+}//end computerComponent
+
+class humanInterest extends Component {
+
+    String referenceSourceURL;
+    String creator;
+
+}//end humanInterest
+
+
+/*
+User will choose which component through a for loop and an array then it will print the 
+chosen component
+ */
+public class Timeline {
+
+    public static void main(String[] args) {
+        Component[] com = new Component[2];
+        com[0] = new computerComponent();
+        com[1] = new humanInterest();
+
+        //for loop
+        for (int i = 0; i <= 2; i = i + 1) {
+            Component accessedCom = com[i];
+            System.out.println("Accessed Component : " + accessedCom);
+        }//end for loop
+
+    }//end main
+}//end Timeline
+
