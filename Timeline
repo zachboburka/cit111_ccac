@@ -26,6 +26,7 @@ class Component {
     String projectName;
     String author;
     String description;
+    String type;
 
     public int yearSince(int currentYear) {
         yearsAgo = (currentYear - year);
@@ -46,9 +47,6 @@ class computerComponent extends Component {
     String yearEvent;
 
     public double newPrice(double inflationRate) {
-        //Scanner
-        Scanner ScanPrice = new Scanner(System.in);
-        inflationRate = ScanPrice.nextDouble();
 
         //computer current price using inflation rate
         currentPrice = (price * inflationRate);
@@ -66,22 +64,47 @@ class humanInterest extends Component {
 
 
 /*
-User will choose which component through a for loop and an array then it will print the 
-chosen component
+User will enter in the details of their event.
  */
 public class Timeline {
 
     public static void main(String[] args) {
-        Component[] com = new Component[2];
-        com[0] = new computerComponent();
-        com[1] = new humanInterest();
 
-        //for loop
-        for (int i = 0; i <= 2; i = i + 1) {
-            Component accessedCom = com[i];
-            System.out.println("Accessed Component : " + accessedCom);
-        }//end for loop
+        /*
+        Originally, I could not get my scanner to read more than one word,
+        but after looking through a forum, I found that using .nextLine() 
+        instead of .next() allows you to do so.
+         */
+        Component user = new Component();
+
+        //user interaction
+        Scanner ScanComponent = new Scanner(System.in);
+
+        System.out.println("Was this project a Computer or Human Interest Component? ");
+        user.type = ScanComponent.nextLine();
+
+        System.out.println("Who was the author? ");
+        user.author = ScanComponent.nextLine();
+
+        System.out.println("What was the Project's Name? ");
+        user.projectName = ScanComponent.nextLine();
+
+        System.out.println("Enter a brief description :  ");
+        user.description = ScanComponent.nextLine();
+
+        System.out.println("What Year Did The Project Release? ");
+        user.year = ScanComponent.nextInt();
+
+        //print results
+        System.out.println("**** Event ****");
+        System.out.println("Author : " + user.author);
+        System.out.println("Project Name : " + user.projectName);
+        System.out.println("Description : " + user.description);
+        System.out.println("Year : " + user.year);
+        System.out.println("Years Ago : " + user.yearSince(2019));
+        System.out.println("Type of Component : " + user.type);
+
+        ScanComponent.close();
 
     }//end main
 }//end Timeline
-
