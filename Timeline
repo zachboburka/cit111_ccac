@@ -82,25 +82,6 @@ public class Timeline {
         scanner too. Pretty close to being done.
          */
         Component user = new Component();
-
-        //user interaction
-        Scanner ScanComponent = new Scanner(System.in);
-
-        System.out.println("Was this project a Computer or Human Interest Component? ");
-        user.type = ScanComponent.nextLine();
-
-        System.out.println("Who was the author? ");
-        user.author = ScanComponent.nextLine();
-
-        System.out.println("What was the Project's Name? ");
-        user.projectName = ScanComponent.nextLine();
-
-        System.out.println("Enter a brief description :  ");
-        user.description = ScanComponent.nextLine();
-
-        System.out.println("What Year Did The Project Release? ");
-        user.year = ScanComponent.nextInt();
-
         Scanner ScanComponent2 = new Scanner(System.in);
 
         //component-specific questions
@@ -110,12 +91,25 @@ public class Timeline {
         if (componentType == 1) {
             computerComponent userComputer = new computerComponent();
 
-            //if computer component is chosen
+            //user interaction
+            Scanner ScanComponent = new Scanner(System.in);
+
+            System.out.println("Who was the author? ");
+            userComputer.author = ScanComponent.nextLine();
+
+            System.out.println("What was the Project's Name? ");
+            userComputer.projectName = ScanComponent.nextLine();
+
+            System.out.println("Enter a brief description :  ");
+            userComputer.description = ScanComponent.nextLine();
+
+            System.out.println("What Year Did The Project Release? ");
+            userComputer.year = ScanComponent.nextInt();
+
             System.out.println("What is the price? ");
             userComputer.price = ScanComponent2.nextDouble();
 
-            System.out.println("What was the inflation rate for "
-                    + user.year + "?");
+            System.out.println("What was the inflation rate for the release year?");
             userComputer.inflationRate = ScanComponent2.nextDouble();
 
             System.out.println("Who is the manufacturer? ");
@@ -127,27 +121,48 @@ public class Timeline {
             System.out.println("Why did you choose this project? ");
             userComputer.whyChoose = ScanComponent2.nextLine();
 
-            System.out.println("List a noteworthy event that happened in the "
-                    + "same year ");
+            System.out.println("List a noteworthy event that happened in the same year ");
             userComputer.yearEvent = ScanComponent2.nextLine();
 
             //print results
+            System.out.println("Computer Component");
+            System.out.println("Project Name : " + userComputer.projectName);
+            System.out.println("Author : " + userComputer.author);
+            System.out.println("Description : " + userComputer.description);
+            System.out.println("Release Year : " + userComputer.year);
             System.out.println("****");
             System.out.println("Price : " + userComputer.price);
             System.out.println("Price in 2019 : " + userComputer.newPrice(userComputer.inflationRate));
             System.out.println("Manufacturer : " + userComputer.manufacturer);
             System.out.println("Model Name : " + userComputer.modelName);
             System.out.println("Reason for Choosing : " + userComputer.whyChoose);
-            System.out.println(user.year + " Historical Event : " + userComputer.yearEvent);
+            System.out.println("Historical Event : " + userComputer.yearEvent);
 
         } else {
             humanInterest userHuman = new humanInterest();
 
             //if human interest component is chosen
+            System.out.println("Who was the author? ");
+            userHuman.author = ScanComponent2.nextLine();
+
+            System.out.println("What was the Project's Name? ");
+            userHuman.projectName = ScanComponent2.nextLine();
+
+            System.out.println("Enter a brief description :  ");
+            userHuman.description = ScanComponent2.nextLine();
+
+            System.out.println("What Year Did The Project Release? ");
+            userHuman.year = ScanComponent2.nextInt();
+
             System.out.println("What impact did this project have on you?");
             userHuman.impactOnYou = ScanComponent2.nextLine();
 
             //print results
+            System.out.println("Human Interest Component");
+            System.out.println("Project Name : " + userHuman.projectName);
+            System.out.println("Author : " + userHuman.author);
+            System.out.println("Description : " + userHuman.description);
+            System.out.println("Release Year : " + userHuman.year);
             System.out.println("****");
             System.out.println("Project's Personal Impact : " + userHuman.impactOnYou);
         }
