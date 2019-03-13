@@ -1,0 +1,54 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package SetsAndMaps;
+
+import java.util.HashMap;
+
+/**
+ *
+ * @author zachboburka
+ */
+public class AgentLand {
+
+    public static void main(String[] args) {
+
+        Agent ga = new Agent();
+        ga.setID("0001");       
+        ga.setName("Joe Dirt");
+        ga.location = "Los Angeles";
+        ga.assignStat = "Compromised";
+        ga.contactInfo = "joedirt@gmail.com";
+        
+
+        
+        ga.setID("0002");
+        ga.setName("Borat");
+        ga.location = "Khazikstan";
+        ga.assignStat = "Successful";
+        ga.contactInfo = "borat@gmail.com";
+        
+        ga.setID("0003");
+        ga.setName("King of The Britons");
+        ga.location = "The Britons";
+        ga.assignStat = "Successful";
+        ga.contactInfo = "holygrail@gmail.com";
+        
+        ga.setID("0004");
+        ga.setName("Colonel Sanders");
+        ga.location = "Kentucky";
+        ga.assignStat = "Successful";
+        ga.contactInfo = "kfc@gmail.com";
+        
+        ga.setID("0005");
+        ga.setName("Jim Lahey");
+        ga.location = "Sunnyville Trailer Park";
+        ga.assignStat = "Successful";
+        ga.contactInfo = "jimlahey@gmail.com";
+       
+        
+        
+    }//end main
+}//end classIMF
