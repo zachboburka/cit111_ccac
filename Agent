@@ -1,0 +1,40 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package SetsAndMaps;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ *
+ * @author zachboburka
+ */
+public class Agent {
+
+    Map<String, String> mapAgent = new HashMap<>();
+
+    private String idNum;
+    private String location;
+    private String name;
+    private String assignStat;
+    private String contactInfo;
+
+    public void generateAgent() {
+
+        mapAgent = new HashMap<>();
+        mapAgent.put("IDNum : ", idNum);
+        mapAgent.put("Location : ", location);
+        mapAgent.put("Name : ", name);
+        mapAgent.put("Assignment Status : ", assignStat);
+        mapAgent.put("Contact Info : ", contactInfo);
+
+        System.out.println("Display Entries in HashMap");
+        for (String key : mapAgent.keySet()) {
+            System.out.println(key + " = " + mapAgent.get(key));
+        }
+    }//end generateAgent
+
+}//end Agent
