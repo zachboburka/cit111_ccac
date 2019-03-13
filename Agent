@@ -25,86 +25,15 @@ public class Agent {
     String assignStat;
     String contactInfo;
 
-    public void generateAgent() {
+    void setName(String n) {
 
-        mapAgent = new HashMap<>();
-        list.add(idNum = "0001");
-        list.add(location = "LA");
-        list.add(name = "Joe Dirt");
-        list.add(assignStat = "Compromised");
-        list.add(contactInfo = "joedirt@gmail.com");
+        System.out.println(name);
 
-        mapAgent.put(idNum, "0001");
-        mapAgent.put(location, "Los Angeles");
-        mapAgent.put(name, "Joe Dirt");
-        mapAgent.put(assignStat, "Compromised");
-        mapAgent.put(contactInfo, "joedirt@gmail.com");
+    }//end setName
 
-        System.out.println("");
-        System.out.println(mapAgent.get(idNum));
-        System.out.println(mapAgent.get(location));
-        System.out.println(mapAgent.get(name));
-        System.out.println(mapAgent.get(assignStat));
-        System.out.println(mapAgent.get(contactInfo));
-        System.out.println("");
-        mapAgent.clear();
-
-        mapAgent.put(idNum, "0002");
-        mapAgent.put(location, "Khazikstan");
-        mapAgent.put(name, "Borat");
-        mapAgent.put(assignStat, "Successful");
-        mapAgent.put(contactInfo, "borat@gmail.com");
-        System.out.println("");
-        System.out.println(mapAgent.get(idNum));
-        System.out.println(mapAgent.get(location));
-        System.out.println(mapAgent.get(name));
-        System.out.println(mapAgent.get(assignStat));
-        System.out.println(mapAgent.get(contactInfo));
-        System.out.println("");
-        mapAgent.clear();
-
-        mapAgent.put(idNum, "0003");
-        mapAgent.put(location, "The Britons");
-        mapAgent.put(name, "King of The Britons");
-        mapAgent.put(assignStat, "Successful");
-        mapAgent.put(contactInfo, "holygrail@gmail.com");
-        System.out.println("");
-        System.out.println(mapAgent.get(idNum));
-        System.out.println(mapAgent.get(location));
-        System.out.println(mapAgent.get(name));
-        System.out.println(mapAgent.get(assignStat));
-        System.out.println(mapAgent.get(contactInfo));
-        System.out.println("");
-        mapAgent.clear();
-
-        mapAgent.put(idNum, "0004");
-        mapAgent.put(location, "Kentucky");
-        mapAgent.put(name, "Colonel Sanders");
-        mapAgent.put(assignStat, "Successful");
-        mapAgent.put(contactInfo, "kfc@gmail.com");
-        System.out.println("");
-        System.out.println(mapAgent.get(idNum));
-        System.out.println(mapAgent.get(location));
-        System.out.println(mapAgent.get(name));
-        System.out.println(mapAgent.get(assignStat));
-        System.out.println(mapAgent.get(contactInfo));
-        System.out.println("");
-        mapAgent.clear();
-
-        mapAgent.put(idNum, "0005");
-        mapAgent.put(location, "Sunnyville Trailer Park");
-        mapAgent.put(name, "Jim Lahey");
-        mapAgent.put(assignStat, "Successful");
-        mapAgent.put(contactInfo, "jimlahey@gmail.com");
-        System.out.println("");
-        System.out.println(mapAgent.get(idNum));
-        System.out.println(mapAgent.get(location));
-        System.out.println(mapAgent.get(name));
-        System.out.println(mapAgent.get(assignStat));
-        System.out.println(mapAgent.get(contactInfo));
-        System.out.println("");
-        mapAgent.clear();
-
-    }//end generateAgent
-
+    void setID(String i) {
+        
+        System.out.println(idNum);
+        
+    }//end setID
 }//end Agent
