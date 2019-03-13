@@ -14,7 +14,48 @@ public class IMF {
     public static void main(String[] args) {
 
         Agent ga = new Agent();
+        
+        ga.idNum = "0001";
+        ga.name = "Joe Dirt";
+        ga.location = "Los Angeles";
+        ga.assignStat = "Compromised";
+        ga.contactInfo = "joedirt@gmail.com";
         ga.generateAgent();
-
+        System.out.println("");
+        
+        ga.idNum = "0002";
+        ga.name = "Borat";
+        ga.location = "Khazikstan";
+        ga.assignStat = "Successful";
+        ga.contactInfo = "borat@gmail.com";
+        ga.generateAgent();
+        System.out.println("");
+        
+        ga.idNum = "0003";
+        ga.name = "King of The Britons";
+        ga.location = "The Britons";
+        ga.assignStat = "Successful";
+        ga.contactInfo = "holygrail@gmail.com";
+        ga.generateAgent();
+        System.out.println("");
+        
+        ga.idNum = "0004";
+        ga.name = "Colonel Sanders";
+        ga.location = "Kentucky";
+        ga.assignStat = "Successful";
+        ga.contactInfo = "kfc@gmail.com";
+        ga.generateAgent();
+        System.out.println("");
+        
+        ga.idNum = "0005";
+        ga.name = "Jim Lahey";
+        ga.location = "Sunnyville Trailer Park";
+        ga.assignStat = "Successful";
+        ga.contactInfo = "jimlahey@gmail.com";
+        ga.generateAgent();
+        System.out.println("");
+        
+        
+        
     }//end main
 }//end classIMF
