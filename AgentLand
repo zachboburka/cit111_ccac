@@ -15,40 +15,46 @@ public class AgentLand {
 
     public static void main(String[] args) {
 
-        Agent ga = new Agent();
-        ga.setID("0001");       
-        ga.setName("Joe Dirt");
-        ga.location = "Los Angeles";
-        ga.assignStat = "Compromised";
-        ga.contactInfo = "joedirt@gmail.com";
+        Agent ga1 = new Agent();
+        ga1.idNum = 1;       
+        ga1.name = ("Joe Dirt");
+        ga1.location = "Los Angeles";
+        ga1.assignStat = "Compromised";
+        ga1.contactInfo = "joedirt@gmail.com";
         
-
+        Agent ga2 = new Agent();
+        ga2.idNum = 2;
+        ga2.name = ("Borat");
+        ga2.location = "Khazikstan";
+        ga2.assignStat = "Successful";
+        ga2.contactInfo = "borat@gmail.com";
         
-        ga.setID("0002");
-        ga.setName("Borat");
-        ga.location = "Khazikstan";
-        ga.assignStat = "Successful";
-        ga.contactInfo = "borat@gmail.com";
+        Agent ga3 = new Agent();
+        ga3.idNum = 3;
+        ga3.name = ("King of The Britons");
+        ga3.location = "The Britons";
+        ga3.assignStat = "Successful";
+        ga3.contactInfo = "holygrail@gmail.com";
         
-        ga.setID("0003");
-        ga.setName("King of The Britons");
-        ga.location = "The Britons";
-        ga.assignStat = "Successful";
-        ga.contactInfo = "holygrail@gmail.com";
+        Agent ga4 = new Agent();
+        ga4.idNum = 4;
+        ga4.name = ("Colonel Sanders");
+        ga4.location = "Kentucky";
+        ga4.assignStat = "Successful";
+        ga4.contactInfo = "kfc@gmail.com";
         
-        ga.setID("0004");
-        ga.setName("Colonel Sanders");
-        ga.location = "Kentucky";
-        ga.assignStat = "Successful";
-        ga.contactInfo = "kfc@gmail.com";
-        
-        ga.setID("0005");
-        ga.setName("Jim Lahey");
-        ga.location = "Sunnyville Trailer Park";
-        ga.assignStat = "Successful";
-        ga.contactInfo = "jimlahey@gmail.com";
+        Agent ga5 = new Agent();
+        ga5.idNum = 5;
+        ga5.name = ("Jim Lahey");
+        ga5.location = "Sunnyville Trailer Park";
+        ga5.assignStat = "Successful";
+        ga5.contactInfo = "jimlahey@gmail.com";
        
-        
+        ga1.PrintAgentInfo(ga1);
+        ga2.PrintAgentInfo(ga2);
+        ga3.PrintAgentInfo(ga3);
+        ga4.PrintAgentInfo(ga4);
+        ga5.PrintAgentInfo(ga5);
         
     }//end main
 }//end classIMF
