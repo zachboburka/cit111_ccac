@@ -28,9 +28,10 @@ public class Agent {
 
     //agent factory
     public static Agent genAgent() {
-        int id = 100000;
         Random r = new Random();
         Agent agent = new Agent();
+        //next line needs moved somewhere
+        int id = 100000;
         agent.SetID(id++);
         agent.SetStealth(r.nextDouble());
         return agent;
@@ -56,14 +57,19 @@ public class Agent {
         return stealthiness;
     } //end GetStealth
 
+    
+    
     Map<String, Double> countryMap = new HashMap<String, Double>();
     
     void PrintAgentInfo(Agent ga) {
+        Random r = new Random();
         System.out.println(idNum);
         System.out.println(location);
         System.out.println(name);
         System.out.println(assignStat);
         System.out.println(contactInfo);
+        SetStealth(r.nextDouble());
+        System.out.println(GetStealth());
 
     }
     
