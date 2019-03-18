@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.Random;
 
 /**
  *
@@ -16,24 +17,56 @@ import java.util.LinkedList;
  */
 public class Agent {
 
-    Map<String, String> mapAgent = new HashMap();
-    List<String> list = new LinkedList<>();
-
-    String idNum;
+    Map<Integer, Agent> mapAgent = new HashMap();
+    int idNum;
     String location;
     String name;
     String assignStat;
     String contactInfo;
+    double stealthiness;
+    boolean secretCoverUpheld;
 
-    void setName(String n) {
+    //agent factory
+    public static Agent genAgent() {
+        int id = 100000;
+        Random r = new Random();
+        Agent agent = new Agent();
+        agent.SetID(id++);
+        agent.SetStealth(r.nextDouble());
+        return agent;
+    }// end genAgent
 
-        System.out.println(name);
+    void SetID(int idSet) {
+        idNum = idSet;
 
-    }//end setName
+    } // end SetID
 
-    void setID(String i) {
-        
+    public int GetID() {
+        mapAgent.get(idNum);
+        return idNum;
+    } //end GetStealth
+
+    public void SetStealth(double stealthSet) {
+        stealthiness = stealthSet;
+
+    } //end SetStealth
+
+    public double GetStealth() {
+        mapAgent.get(stealthiness);
+        return stealthiness;
+    } //end GetStealth
+
+    Map<String, Double> countryMap = new HashMap<String, Double>();
+    
+    void PrintAgentInfo(Agent ga) {
         System.out.println(idNum);
-        
-    }//end setID
+        System.out.println(location);
+        System.out.println(name);
+        System.out.println(assignStat);
+        System.out.println(contactInfo);
+
+    }
+    
+    
+    
 }//end Agent
