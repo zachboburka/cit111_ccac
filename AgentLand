@@ -16,40 +16,11 @@ public class AgentLand {
     public static void main(String[] args) {
 
         Agent ga1 = new Agent();
-        ga1.idNum = 1;       
-        ga1.name = ("Joe Dirt");
-        ga1.location = "Los Angeles";
-        ga1.assignStat = "Compromised";
-        ga1.contactInfo = "joedirt@gmail.com";
-        
         Agent ga2 = new Agent();
-        ga2.idNum = 2;
-        ga2.name = ("Borat");
-        ga2.location = "Khazikstan";
-        ga2.assignStat = "Successful";
-        ga2.contactInfo = "borat@gmail.com";
-        
         Agent ga3 = new Agent();
-        ga3.idNum = 3;
-        ga3.name = ("King of The Britons");
-        ga3.location = "The Britons";
-        ga3.assignStat = "Successful";
-        ga3.contactInfo = "holygrail@gmail.com";
-        
-        Agent ga4 = new Agent();
-        ga4.idNum = 4;
-        ga4.name = ("Colonel Sanders");
-        ga4.location = "Kentucky";
-        ga4.assignStat = "Successful";
-        ga4.contactInfo = "kfc@gmail.com";
-        
+        Agent ga4 = new Agent();        
         Agent ga5 = new Agent();
-        ga5.idNum = 5;
-        ga5.name = ("Jim Lahey");
-        ga5.location = "Sunnyville Trailer Park";
-        ga5.assignStat = "Successful";
-        ga5.contactInfo = "jimlahey@gmail.com";
-       
+
         ga1.PrintAgentInfo(ga1);
         ga2.PrintAgentInfo(ga2);
         ga3.PrintAgentInfo(ga3);
