@@ -15,17 +15,18 @@ public class AgentLand {
 
     public static void main(String[] args) {
 
-        Agent ga1 = new Agent();
-        Agent ga2 = new Agent();
-        Agent ga3 = new Agent();
-        Agent ga4 = new Agent();        
-        Agent ga5 = new Agent();
-
-        ga1.PrintAgentInfo(ga1);
-        ga2.PrintAgentInfo(ga2);
-        ga3.PrintAgentInfo(ga3);
-        ga4.PrintAgentInfo(ga4);
-        ga5.PrintAgentInfo(ga5);
+        Agent ga[]=new Agent[10];
+        for(int i=0;i<=9;i++){ ga[i]=new Agent();}
+        
+        
+        
+        /**
+         * make the country list in AgentLand
+         * Also make the agent creating for loop inside genAgent on Agent
+         * Last, call the methods on this AgentLand instead of
+         * having them all inside PrintAgentInfo
+         * 
+         */
         
         
         
