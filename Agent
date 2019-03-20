@@ -18,28 +18,28 @@ import java.util.Random;
 public class Agent {
 
     Map<Integer, Agent> mapAgent = new HashMap();
-    int idNum;
+    int idNum = 10000;
     String location;
     String name;
     String assignStat;
     String contactInfo;
+    double countryStealth;
     double stealthiness;
     boolean secretCoverUpheld;
+    public static int count = 0;
 
     //agent factory
-    public static Agent genAgent() {
+    public Agent genAgent() {
         Random r = new Random();
         Agent agent = new Agent();
         //next line needs moved somewhere
-        int id = 100000;
-        agent.SetID(id++);
         agent.SetStealth(r.nextDouble());
         return agent;
     }// end genAgent
 
-    void SetID(int idSet) {
-        idNum = idSet;
-
+    public void SetID() {
+        idNum = count++;
+        
     } // end SetID
 
     public int GetID() {
@@ -56,23 +56,36 @@ public class Agent {
         mapAgent.get(stealthiness);
         return stealthiness;
     } //end GetStealth
+    
 
-    
-    
+            
+    public boolean IsCoverBlown() {
     Map<String, Double> countryMap = new HashMap<String, Double>();
+    countryMap.put("UK", 0.2);
+    countryMap.put("Iran", 0.92);
+    countryMap.put("China", 0.85);
+    countryMap.put("Japan", 0.3);
     
+        if (stealthiness > countryMap.get("UK")) {
+            secretCoverUpheld = true;
+            System.out.println(countryMap.get("UK"));
+        } else {
+            secretCoverUpheld = false;
+        } //end if statement
+            return secretCoverUpheld;
+    }//end IsCoverBlown
+
     void PrintAgentInfo(Agent ga) {
         Random r = new Random();
-        System.out.println(idNum);
-        System.out.println(location);
-        System.out.println(name);
-        System.out.println(assignStat);
-        System.out.println(contactInfo);
+        SetID();
+        System.out.println("");
+        System.out.println("Agent ID : " + GetID());
         SetStealth(r.nextDouble());
-        System.out.println(GetStealth());
-
+        System.out.println("Stealth Rating : " + GetStealth());
+        IsCoverBlown();
+        System.out.println("Still under cover? : " + secretCoverUpheld);
     }
     
     
-    
+
 }//end Agent
