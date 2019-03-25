@@ -7,12 +7,13 @@ package SetsAndMaps;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.List;
-import java.util.LinkedList;
 import java.util.Random;
 
 /**
- *
+ * Program creates agents and assigns them with an ID Number and Stealth Rating
+ * Each agent is deployed randomly to one of four countries and their
+ * stealth rating is compared to the respective country's which will reveal 
+ * whether or not they are still undercover
  * @author zachboburka
  */
 public class Agent {
@@ -23,31 +24,35 @@ public class Agent {
     String name;
     String assignStat;
     String contactInfo;
+    int agentsInCover;
+    int agentsCompromised;
     double countryStealth;
     double stealthiness;
     boolean secretCoverUpheld;
     public static int count = 0;
 
-    //agent factory
-    public Agent genAgent() {
-        Random r = new Random();
-        Agent agent = new Agent();
-        //next line needs moved somewhere
-        agent.SetStealth(r.nextDouble());
-        return agent;
-    }// end genAgent
-
+    /**
+     * Sets and gets the ID Number for each Agent ID is set by a counter going
+     * up to 10000
+     */
     public void SetID() {
         idNum = count++;
-        
+
     } // end SetID
 
     public int GetID() {
         mapAgent.get(idNum);
         return idNum;
+
     } //end GetStealth
 
+    /**
+     * Sets and gets the stealth rating for each Agent Stealth is set by setting
+     * stealthSet to a random double
+     */
     public void SetStealth(double stealthSet) {
+        Random r = new Random();
+        stealthSet = r.nextDouble();
         stealthiness = stealthSet;
 
     } //end SetStealth
@@ -56,36 +61,72 @@ public class Agent {
         mapAgent.get(stealthiness);
         return stealthiness;
     } //end GetStealth
-    
 
-            
     public boolean IsCoverBlown() {
-    Map<String, Double> countryMap = new HashMap<String, Double>();
-    countryMap.put("UK", 0.2);
-    countryMap.put("Iran", 0.92);
-    countryMap.put("China", 0.85);
-    countryMap.put("Japan", 0.3);
-    
-        if (stealthiness > countryMap.get("UK")) {
+        /**
+         * HashMap containing a country and the country's stealth rating
+         */
+        Map<String, Double> countryMap = new HashMap<String, Double>();
+        countryMap.put("UK ", 0.2);
+        countryMap.put("Iran ", 0.92);
+        countryMap.put("China ", 0.85);
+        countryMap.put("Japan ", 0.3);
+
+        /**
+         * Pick a random country for Agent Object 1 creates an array duplicate
+         * of countryMap Object two chooses a random country based its number in
+         * the array
+         */
+        Object[] pickLocation = countryMap.keySet().toArray();
+        Object key = pickLocation[new Random().nextInt(pickLocation.length)];
+        System.out.println("Location : " + key + countryMap.get(key));
+
+        /**
+         * If statement deciding agent's cover status if the agents stealth
+         * rating is greater than the country's stealth rating, then they remain
+         * in cover Their cover will be blown if their stealth rating is less
+         * than the country's stealth rating Planned to add a final output that
+         * would display how many agents are undercover/compromised but haven't
+         * gotten it to work
+         */
+        if (stealthiness > countryMap.get(key)) {
             secretCoverUpheld = true;
-            System.out.println(countryMap.get("UK"));
+            System.out.println("Agent is still in cover.");
+            agentsInCover = agentsInCover + 1;
         } else {
             secretCoverUpheld = false;
+            System.out.println("Agent's cover is blown.");
+            agentsCompromised = agentsCompromised + 1;
         } //end if statement
-            return secretCoverUpheld;
+        return secretCoverUpheld;
     }//end IsCoverBlown
 
-    void PrintAgentInfo(Agent ga) {
-        Random r = new Random();
-        SetID();
-        System.out.println("");
-        System.out.println("Agent ID : " + GetID());
-        SetStealth(r.nextDouble());
-        System.out.println("Stealth Rating : " + GetStealth());
-        IsCoverBlown();
-        System.out.println("Still under cover? : " + secretCoverUpheld);
+    /**
+     * Agent Factory Creates agents using a for loop Number of agents can be
+     * edited by changing the object and for loop Each agent is given an ID
+     * Number and a Stealth Rating Stealth Rating is used to determine the
+     * agent's cover status
+     */
+    public Agent genAgent() {
+        Agent ga[] = new Agent[100];
+        for (int i = 0; i <= 99; i++) {
+            ga[i] = new Agent();
+
+            System.out.println("");
+            ga[0].SetID();
+            System.out.println("Agent ID : " + ga[0].GetID());
+
+            ga[0].SetStealth(stealthiness);
+            System.out.println("Stealth Rating : " + ga[0].GetStealth());
+            ga[0].IsCoverBlown(agentsInCover);
+        }
+
+        return ga[0];
+    }// end genAgent
+
+    public void agentSummary() {
+        System.out.println("Agents still undercover : " + agentsInCover);
+        System.out.println("Agents Compromised : " + agentsCompromised);
     }
-    
-    
 
 }//end Agent
