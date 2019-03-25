@@ -5,17 +5,53 @@
  */
 package SetsAndMaps;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
 /**
- * Client application for Agent
- * Each Agent's ID Number, Stealth Rating, and cover status is printed
+ * Client application for Agent Each Agent's ID Number, Stealth Rating, and
+ * cover status is printed
+ *
  * @author zachboburka
  */
 public class AgentLand {
 
+    int agentsInCover;
+    public static int count = 0;
+
+    List undercoverList = new ArrayList();
+    List compromisedList = new ArrayList();
+
     public static void main(String[] args) {
 
-        Agent ga1 = new Agent();
-        ga1.genAgent();
+        /**
+         * HashMap containing a country and the country's stealth rating
+         */
+        Map<String, Double> countryMap = new HashMap<String, Double>();
+        countryMap.put("UK ", 0.2);
+        countryMap.put("Iran ", 0.92);
+        countryMap.put("China ", 0.85);
+        countryMap.put("Japan ", 0.3);
+        
+        Object[] pickLocation = countryMap.keySet().toArray();
+        Object key = pickLocation[new Random().nextInt(pickLocation.length)];
+        System.out.println("Location : " + key + countryMap.get(key));
+        
+        Agent ga[] = new Agent[10];
+        for (int i = 0; i <= 9; i++) {
+            ga[i] = new Agent();
 
-    }//end main
-}//end classIMFs
+            ga[i].SetID();
+            ga[i].setCountry();
+            ga[i].SetStealth(stealthiness);
+            ga[i].IsCoverBlown();
+
+            Agent clientAgent = new Agent();
+            clientAgent.genAgent();
+            clientAgent.printStatus();
+        }//end main
+    }//end classIMFs
+}
