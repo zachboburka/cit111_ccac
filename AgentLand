@@ -5,30 +5,17 @@
  */
 package SetsAndMaps;
 
-import java.util.HashMap;
-
 /**
- *
+ * Client application for Agent
+ * Each Agent's ID Number, Stealth Rating, and cover status is printed
  * @author zachboburka
  */
 public class AgentLand {
 
     public static void main(String[] args) {
 
-        Agent ga[]=new Agent[10];
-        for(int i=0;i<=9;i++){ ga[i]=new Agent();}
-        
-        
-        
-        /**
-         * make the country list in AgentLand
-         * Also make the agent creating for loop inside genAgent on Agent
-         * Last, call the methods on this AgentLand instead of
-         * having them all inside PrintAgentInfo
-         * 
-         */
-        
-        
-        
+        Agent ga1 = new Agent();
+        ga1.genAgent();
+
     }//end main
-}//end classIMF
+}//end classIMFs
