@@ -118,7 +118,7 @@ public class Agent {
 
             ga[0].SetStealth(stealthiness);
             System.out.println("Stealth Rating : " + ga[0].GetStealth());
-            ga[0].IsCoverBlown(agentsInCover);
+            ga[0].IsCoverBlown();
         }
 
         return ga[0];
