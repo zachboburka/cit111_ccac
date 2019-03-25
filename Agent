@@ -5,31 +5,28 @@
  */
 package SetsAndMaps;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 /**
  * Program creates agents and assigns them with an ID Number and Stealth Rating
- * Each agent is deployed randomly to one of four countries and their
- * stealth rating is compared to the respective country's which will reveal 
- * whether or not they are still undercover
+ * Each agent is deployed randomly to one of four countries and their stealth
+ * rating is compared to the respective country's which will reveal whether or
+ * not they are still undercover
+ *
  * @author zachboburka
  */
 public class Agent {
 
     Map<Integer, Agent> mapAgent = new HashMap();
     int idNum = 10000;
-    String location;
-    String name;
-    String assignStat;
-    String contactInfo;
-    int agentsInCover;
     int agentsCompromised;
     double countryStealth;
     double stealthiness;
     boolean secretCoverUpheld;
-    public static int count = 0;
 
     /**
      * Sets and gets the ID Number for each Agent ID is set by a counter going
@@ -62,25 +59,16 @@ public class Agent {
         return stealthiness;
     } //end GetStealth
 
-    public boolean IsCoverBlown() {
-        /**
-         * HashMap containing a country and the country's stealth rating
-         */
-        Map<String, Double> countryMap = new HashMap<String, Double>();
-        countryMap.put("UK ", 0.2);
-        countryMap.put("Iran ", 0.92);
-        countryMap.put("China ", 0.85);
-        countryMap.put("Japan ", 0.3);
-
+    public void setCountry() {
         /**
          * Pick a random country for Agent Object 1 creates an array duplicate
          * of countryMap Object two chooses a random country based its number in
          * the array
          */
-        Object[] pickLocation = countryMap.keySet().toArray();
-        Object key = pickLocation[new Random().nextInt(pickLocation.length)];
-        System.out.println("Location : " + key + countryMap.get(key));
+        
+    } //end setCountry
 
+    public boolean IsCoverBlown() {
         /**
          * If statement deciding agent's cover status if the agents stealth
          * rating is greater than the country's stealth rating, then they remain
@@ -89,14 +77,15 @@ public class Agent {
          * would display how many agents are undercover/compromised but haven't
          * gotten it to work
          */
+        
         if (stealthiness > countryMap.get(key)) {
-            secretCoverUpheld = true;
+            undercoverList.add(idNum);
             System.out.println("Agent is still in cover.");
-            agentsInCover = agentsInCover + 1;
+            secretCoverUpheld = true;
         } else {
-            secretCoverUpheld = false;
+            compromisedList.add(idNum);
             System.out.println("Agent's cover is blown.");
-            agentsCompromised = agentsCompromised + 1;
+            secretCoverUpheld = false;
         } //end if statement
         return secretCoverUpheld;
     }//end IsCoverBlown
@@ -108,25 +97,23 @@ public class Agent {
      * agent's cover status
      */
     public Agent genAgent() {
-        Agent ga[] = new Agent[100];
-        for (int i = 0; i <= 99; i++) {
-            ga[i] = new Agent();
 
-            System.out.println("");
-            ga[0].SetID();
-            System.out.println("Agent ID : " + ga[0].GetID());
-
-            ga[0].SetStealth(stealthiness);
-            System.out.println("Stealth Rating : " + ga[0].GetStealth());
-            ga[0].IsCoverBlown();
-        }
-
-        return ga[0];
-    }// end genAgent
-
-    public void agentSummary() {
-        System.out.println("Agents still undercover : " + agentsInCover);
-        System.out.println("Agents Compromised : " + agentsCompromised);
+        System.out.println("");
+        System.out.println("Agent ID : " + ga[i].GetID());
+        System.out.println("Stealth Rating : " + ga[i].GetStealth());
+        System.out.println(secretCoverUpheld);
+        return secretCoverUpheld;
     }
+
+
+
+public void printStatus() {
+        //Prints out number of agents undercover and compromised
+
+        System.out.println("");
+        System.out.println("Agent Totals : ");
+        System.out.println("Number of agents undercover : " + undercoverList.size());
+        System.out.println("Number of agents compromised : " + compromisedList.size());
+    } // end printStatus
 
 }//end Agent
