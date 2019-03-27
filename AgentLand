@@ -18,15 +18,54 @@ import java.util.Random;
  * @author zachboburka
  */
 public class AgentLand {
-
-    int agentsInCover;
+    Map<Integer, Agent> mapAgent = new HashMap();
+    
     public static int count = 0;
-
+    int idNum = 10000;
+    int agentsCompromised;
+    int agentsInCover;
+    int underList;
+    int compList;
+    double countryStealth;
+    double stealthiness;
+    boolean secretCoverUpheld;
+    
+    //Lists containing number of undercover and compromised agents
     List undercoverList = new ArrayList();
     List compromisedList = new ArrayList();
 
-    public static void main(String[] args) {
+    /**
+     * Sets and gets the ID Number for each Agent ID is set by a counter going
+     * up to 10000
+     */
+    public void SetID() {
+        idNum = count++;
 
+    } // end SetID
+
+    public int GetID() {
+        mapAgent.get(idNum);
+        return idNum;
+
+    } //end GetStealth
+
+    /**
+     * Sets and gets the stealth rating for each Agent Stealth is set by setting
+     * stealthSet to a random double
+     */
+    public void SetStealth() {
+        Random r = new Random();
+        stealthiness = r.nextDouble();
+        
+    } //end SetStealth
+
+    public double GetStealth() {
+        mapAgent.get(stealthiness);
+        return stealthiness;
+        
+    } //end GetStealth
+    
+    public boolean IsCoverBlown() {
         /**
          * HashMap containing a country and the country's stealth rating
          */
@@ -36,22 +75,56 @@ public class AgentLand {
         countryMap.put("China ", 0.85);
         countryMap.put("Japan ", 0.3);
         
+        //Assigns each agent a country
         Object[] pickLocation = countryMap.keySet().toArray();
         Object key = pickLocation[new Random().nextInt(pickLocation.length)];
         System.out.println("Location : " + key + countryMap.get(key));
         
+        /**
+         * If statement deciding agent's cover status if the agents stealth
+         * rating is greater than the country's stealth rating, then they remain
+         * in cover Their cover will be blown if their stealth rating is less
+         * than the country's stealth rating Planned to add a final output that
+         * would display how many agents are undercover/compromised but haven't
+         * gotten it to work
+         */
+        
+        if (stealthiness > countryMap.get(key)) {
+            undercoverList.add(idNum);
+            System.out.println("Agent is still in cover.");
+            secretCoverUpheld = true;
+        } else {
+            compromisedList.add(idNum);
+            System.out.println("Agent's cover is blown.");
+            secretCoverUpheld = false;
+        } //end if statement
+        return secretCoverUpheld;
+    }//end IsCoverBlown
+    
+    
+    //Prints the number of agents Undercover
+    public int UnderListPrint(){
+        underList = undercoverList.size();
+        return underList;
+        
+    }
+    
+    //Prints the number of agents Compromised
+    public int CompListPrint(){
+        compList = compromisedList.size();
+        return compList;
+        
+    }
+    
+    public static void main(String[] args) {
+        Agent clientAgent = new Agent();
+        //Generates Agents
         Agent ga[] = new Agent[10];
         for (int i = 0; i <= 9; i++) {
-            ga[i] = new Agent();
 
-            ga[i].SetID();
-            ga[i].setCountry();
-            ga[i].SetStealth(stealthiness);
-            ga[i].IsCoverBlown();
-
-            Agent clientAgent = new Agent();
-            clientAgent.genAgent();
-            clientAgent.printStatus();
-        }//end main
-    }//end classIMFs
-}
+            //Prints Agents and Specs
+            clientAgent.GenAgent();
+        }//end loop
+            clientAgent.PrintStatus();
+    }//end main
+}//end AgentLand
