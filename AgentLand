@@ -18,8 +18,9 @@ import java.util.Random;
  * @author zachboburka
  */
 public class AgentLand {
+
     Map<Integer, Agent> mapAgent = new HashMap();
-    
+
     public static int count = 0;
     int idNum = 10000;
     int agentsCompromised;
@@ -29,7 +30,7 @@ public class AgentLand {
     double countryStealth;
     double stealthiness;
     boolean secretCoverUpheld;
-    
+
     //Lists containing number of undercover and compromised agents
     List undercoverList = new ArrayList();
     List compromisedList = new ArrayList();
@@ -56,15 +57,15 @@ public class AgentLand {
     public void SetStealth() {
         Random r = new Random();
         stealthiness = r.nextDouble();
-        
+
     } //end SetStealth
 
     public double GetStealth() {
         mapAgent.get(stealthiness);
         return stealthiness;
-        
+
     } //end GetStealth
-    
+
     public boolean IsCoverBlown() {
         /**
          * HashMap containing a country and the country's stealth rating
@@ -74,12 +75,12 @@ public class AgentLand {
         countryMap.put("Iran ", 0.92);
         countryMap.put("China ", 0.85);
         countryMap.put("Japan ", 0.3);
-        
+
         //Assigns each agent a country
         Object[] pickLocation = countryMap.keySet().toArray();
         Object key = pickLocation[new Random().nextInt(pickLocation.length)];
         System.out.println("Location : " + key + countryMap.get(key));
-        
+
         /**
          * If statement deciding agent's cover status if the agents stealth
          * rating is greater than the country's stealth rating, then they remain
@@ -88,7 +89,6 @@ public class AgentLand {
          * would display how many agents are undercover/compromised but haven't
          * gotten it to work
          */
-        
         if (stealthiness > countryMap.get(key)) {
             undercoverList.add(idNum);
             System.out.println("Agent is still in cover.");
@@ -100,22 +100,21 @@ public class AgentLand {
         } //end if statement
         return secretCoverUpheld;
     }//end IsCoverBlown
-    
-    
+
     //Prints the number of agents Undercover
-    public int UnderListPrint(){
+    public int UnderListPrint() {
         underList = undercoverList.size();
         return underList;
-        
+
     }
-    
+
     //Prints the number of agents Compromised
-    public int CompListPrint(){
+    public int CompListPrint() {
         compList = compromisedList.size();
         return compList;
-        
+
     }
-    
+
     public static void main(String[] args) {
         Agent clientAgent = new Agent();
         //Generates Agents
@@ -125,6 +124,6 @@ public class AgentLand {
             //Prints Agents and Specs
             clientAgent.GenAgent();
         }//end loop
-            clientAgent.PrintStatus();
+        clientAgent.PrintStatus();
     }//end main
 }//end AgentLand
