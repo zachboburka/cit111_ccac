@@ -1,0 +1,57 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package GUI;
+import java.awt.GridLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+/**
+ *
+ * @author zachary.boburka
+ */
+public class swingPractice {
+    //member variable allows all methods to access out 
+    //top-level container
+    private static JFrame frame;
+    
+    public static void main(String[] args) {
+    
+        //Gui Creation pattern
+        
+        //Step 1 : Object Creation; store in typed mem variable
+         frame = new JFrame("Pattern Practice");
+        
+         //Step 2 : Configure properties on our new object
+         frame.setSize(400, 600);
+         frame.setLocationRelativeTo(null);
+         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         
+         frame.setLayout(new GridLayout(5, 3));
+         frame.add(new JButton("button"));
+         frame.add(new JButton("button"));
+         frame.add(new JButton("button"));
+         frame.add(new JButton("button"));
+         frame.add(new JButton("button"));
+         frame.add(new JButton("button"));
+         frame.add(new JButton("button"));
+         frame.add(new JButton("button"));
+         frame.add(new JButton("button"));
+         frame.add(new JButton("button"));
+         frame.add(new JButton("button"));
+         frame.add(new JButton("button"));
+         
+         
+         
+         //step 3 : set visiblity and/or
+         //attatch to parent component for display
+         frame.setVisible(true);
+         
+         
+         
+         
+    }//main
+    
+}//swingPractice
