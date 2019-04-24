@@ -1,26 +1,29 @@
 
-import java.awt.BorderLayout;
+import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
-import static java.awt.SystemColor.text;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Scanner;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.*;
-import java.awt.event.*;
 
 public class swingPractice {
 
+    //Member Variables
     int accountBalance = 10000;
     int depositAmount;
     int otherAmountChosen;
     int withdrawlAmount;
+
+    //Fonts
+    Font labelFont = new Font("TimesRoman", Font.BOLD, 18);
+    Font buttonFont = new Font("TimesRoman", Font.BOLD, 14);
 
     swingPractice() {
 
@@ -31,12 +34,18 @@ public class swingPractice {
         button = new JButton("Deposit");
         button1 = new JButton("Withdrawl");
         button2 = new JButton("Exit");
+
+        //label
         label = new JLabel("Choose A Service", JLabel.CENTER);
+
+        //fonts
+        label.setFont(labelFont);
 
         //Deposit Button
         //button color
-        button.setForeground(Color.BLACK);
+        button.setForeground(Color.WHITE);
         button.setBackground(Color.RED);
+        button.setFont(buttonFont);
         //button function
         button.addActionListener(new ActionListener() {
             @Override
@@ -47,8 +56,9 @@ public class swingPractice {
 
         //Withdrawl Button
         //button color
-        button1.setForeground(Color.BLACK);
+        button1.setForeground(Color.WHITE);
         button1.setBackground(Color.RED);
+        button1.setFont(buttonFont);
         //button function
         button1.addActionListener(new ActionListener() {
             @Override
@@ -59,8 +69,9 @@ public class swingPractice {
 
         //Exit Button
         //button color
-        button2.setForeground(Color.BLACK);
+        button2.setForeground(Color.WHITE);
         button2.setBackground(Color.RED);
+        button2.setFont(buttonFont);
         //button function
         button2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent exit) {
@@ -68,7 +79,6 @@ public class swingPractice {
             }
         });
 
-        //Label
         //Panel and GridLayout
         JPanel panel = new JPanel(new GridLayout(6, 7, 10, 10));
         //add buttons and label
@@ -77,6 +87,21 @@ public class swingPractice {
         panel.add(button1);
         panel.add(button2);
 
+        //keyEvent
+        KeyAdapter listener = new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_ESCAPE:
+                        frame.setVisible(false);
+                }
+            }
+        ;
+        };
+
+        
+        
+    
         //frame settings
         frame.setTitle("GTA V ATM");
         frame.setSize(300, 400);
@@ -84,6 +109,7 @@ public class swingPractice {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        frame.addKeyListener(listener);
 
     }
 
@@ -117,8 +143,9 @@ public class swingPractice {
         //Button Name
         button3 = new JButton("10");
         //Button Color
-        button3.setForeground(Color.BLACK);
+        button3.setForeground(Color.WHITE);
         button3.setBackground(Color.RED);
+        button3.setFont(buttonFont);
         //Button Action
         button3.addActionListener(new ActionListener() {
             @Override
@@ -128,8 +155,9 @@ public class swingPractice {
         });
 
         button4 = new JButton("20");
-        button4.setForeground(Color.BLACK);
+        button4.setForeground(Color.WHITE);
         button4.setBackground(Color.RED);
+        button4.setFont(buttonFont);
         button4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent w) {
@@ -138,8 +166,9 @@ public class swingPractice {
         });
 
         button5 = new JButton("50");
-        button5.setForeground(Color.BLACK);
+        button5.setForeground(Color.WHITE);
         button5.setBackground(Color.RED);
+        button5.setFont(buttonFont);
         button5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent w) {
@@ -148,8 +177,9 @@ public class swingPractice {
         });
 
         button6 = new JButton("100");
-        button6.setForeground(Color.BLACK);
+        button6.setForeground(Color.WHITE);
         button6.setBackground(Color.RED);
+        button6.setFont(buttonFont);
         button6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent w) {
@@ -158,8 +188,9 @@ public class swingPractice {
         });
 
         button7 = new JButton("Other");
-        button7.setForeground(Color.BLACK);
+        button7.setForeground(Color.WHITE);
         button7.setBackground(Color.RED);
+        button7.setFont(buttonFont);
         button7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent w) {
@@ -168,8 +199,9 @@ public class swingPractice {
         });
 
         button8 = new JButton("Return");
-        button8.setForeground(Color.BLACK);
+        button8.setForeground(Color.WHITE);
         button8.setBackground(Color.RED);
+        button8.setFont(buttonFont);
         button8.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent w) {
@@ -210,8 +242,9 @@ public class swingPractice {
         //Button Name
         button10 = new JButton("10");
         //Button Color
-        button10.setForeground(Color.BLACK);
+        button10.setForeground(Color.WHITE);
         button10.setBackground(Color.RED);
+        button10.setFont(buttonFont);
         //Button Action
         button10.addActionListener(new ActionListener() {
             @Override
@@ -221,8 +254,9 @@ public class swingPractice {
         });
 
         button11 = new JButton("20");
-        button11.setForeground(Color.BLACK);
+        button11.setForeground(Color.WHITE);
         button11.setBackground(Color.RED);
+        button11.setFont(buttonFont);
         button11.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent w) {
@@ -231,8 +265,9 @@ public class swingPractice {
         });
 
         button12 = new JButton("50");
-        button12.setForeground(Color.BLACK);
+        button12.setForeground(Color.WHITE);
         button12.setBackground(Color.RED);
+        button12.setFont(buttonFont);
         button12.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent w) {
@@ -241,8 +276,9 @@ public class swingPractice {
         });
 
         button13 = new JButton("100");
-        button13.setForeground(Color.BLACK);
+        button13.setForeground(Color.WHITE);
         button13.setBackground(Color.RED);
+        button13.setFont(buttonFont);
         button13.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent w) {
@@ -251,8 +287,9 @@ public class swingPractice {
         });
 
         button14 = new JButton("Other");
-        button14.setForeground(Color.BLACK);
+        button14.setForeground(Color.WHITE);
         button14.setBackground(Color.RED);
+        button14.setFont(buttonFont);
         button14.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent w) {
@@ -261,8 +298,9 @@ public class swingPractice {
         });
 
         button15 = new JButton("Return");
-        button15.setForeground(Color.BLACK);
+        button15.setForeground(Color.WHITE);
         button15.setBackground(Color.RED);
+        button15.setFont(buttonFont);
         button15.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent w) {
@@ -305,12 +343,6 @@ public class swingPractice {
 
         // create a new button 
         button91 = new JButton("submit");
-
-        // create a object of the text class 
-        text te = new text();
-
-        // addActionListener to button 
-        button91.addActionListener(te);
 
         // create a object of JTextField with 16 columns 
         otherWithdrawl1 = new JTextField(16);
@@ -361,12 +393,6 @@ public class swingPractice {
         // create a new button 
         button9 = new JButton("submit");
 
-        // create a object of the text class 
-        text te = new text();
-
-        // addActionListener to button 
-        button9.addActionListener(te);
-
         // create a object of JTextField with 16 columns 
         otherWithdrawl = new JTextField(16);
 
@@ -404,3 +430,4 @@ public class swingPractice {
     }//OtherInputW
 
 }//swingPractice
+
