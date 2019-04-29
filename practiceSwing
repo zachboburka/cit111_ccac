@@ -1,17 +1,22 @@
+package GUI;
 
-import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import static sun.applet.AppletResourceLoader.getImage;
 
 public class swingPractice {
 
@@ -25,19 +30,30 @@ public class swingPractice {
     Font labelFont = new Font("TimesRoman", Font.BOLD, 18);
     Font buttonFont = new Font("TimesRoman", Font.BOLD, 14);
 
+
     swingPractice() {
 
         //Make Frame, buttons, and label
         JFrame frame = new JFrame();
         JButton button, button1, button2;
-        JLabel label;
+        JLabel label, labelPNC;
         button = new JButton("Deposit");
         button1 = new JButton("Withdrawl");
         button2 = new JButton("Exit");
 
         //label
         label = new JLabel("Choose A Service", JLabel.CENTER);
+        labelPNC = new JLabel();
 
+        try {
+            URL url = new URL("pncLogo.png");
+            Image myPicture = getImage(url);
+
+            labelPNC.setIcon(new ImageIcon(myPicture));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         //fonts
         label.setFont(labelFont);
 
@@ -86,22 +102,19 @@ public class swingPractice {
         panel.add(button);
         panel.add(button1);
         panel.add(button2);
+        panel.add(labelPNC);
 
         //keyEvent
         KeyAdapter listener = new KeyAdapter() {
             @Override
-            public void keyPressed(KeyEvent e) {
+            public void keyTyped(KeyEvent e) {
                 switch (e.getKeyCode()) {
-                    case KeyEvent.VK_ESCAPE:
-                        frame.setVisible(false);
+                    case KeyEvent.VK_W:
+                        WithdrawlGUI(); 
                 }
             }
-        ;
         };
-
         
-        
-    
         //frame settings
         frame.setTitle("GTA V ATM");
         frame.setSize(300, 400);
