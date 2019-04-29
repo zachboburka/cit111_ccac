@@ -42,11 +42,17 @@ public class swingPractice {
         label = new JLabel("Choose A Service", JLabel.CENTER);
         labelPNC = new JLabel();
 
+        
+        
         try {
-            URL url = new URL("pncLogo.png");
-            Image myPicture = getImage(url);
+            
+            labelPNC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pncLogo.png")));
+            
+            
+            //URL url = new URL("\\Users\\zachary.boburka\\Documents\\NetBeansProjects\\cit130_zach\\src\\GUI\\pncLogo.png");
+            //Image myPicture = getImage(url);
 
-            labelPNC.setIcon(new ImageIcon(myPicture));
+            //labelPNC.setIcon(new ImageIcon(myPicture));
 
         } catch (Exception e) {
             e.printStackTrace();
