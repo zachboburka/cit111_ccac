@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -29,10 +28,8 @@ public class swingPractice {
     //Fonts
     Font labelFont = new Font("TimesRoman", Font.BOLD, 18);
     Font buttonFont = new Font("TimesRoman", Font.BOLD, 14);
-
-
+    
     swingPractice() {
-
         //Make Frame, buttons, and label
         JFrame frame = new JFrame();
         JButton button, button1, button2;
@@ -123,12 +120,10 @@ public class swingPractice {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.addKeyListener(listener);
-
     }
 
     public static void main(String[] args) {
         new swingPractice();
-
     }
 
     //deposit code
@@ -377,11 +372,8 @@ public class swingPractice {
                 int amountC = Integer.parseInt(i);
                 //code for calculation on integer
                 AccountDeposit(amountC);
-            }
-
-        ;
+            };
         });
-                
         
         // add panel to frame 
         f1.add(p);
@@ -421,17 +413,12 @@ public class swingPractice {
             public void actionPerformed(ActionEvent w) {
                 //getText() returns string
                 String i = otherWithdrawl.getText();
-
                 /*below statement gives NumberFormatException, i want to retrieve integer from textfield */
                 int amountC = Integer.parseInt(i);
                 //code for calculation on integer
                 AccountWithdrawl(amountC);
-            }
-
-        ;
+            };
         });
-                
-        
         // add panel to frame 
         f.add(p);
 
@@ -443,4 +430,3 @@ public class swingPractice {
     }//OtherInputW
 
 }//swingPractice
-
